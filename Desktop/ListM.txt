@@ -1,0 +1,80 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.io.File;
+
+public class ListManage2 {
+
+	public static void main(String[] args) throws IOException {
+	
+		BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+		ArrayList<Address> myArr = new ArrayList<Address>();
+		boolean flag = false;
+		
+		while (flag == false) {			
+			System.out.println("A: addition, D: deletion, L: list, Q: quit, F: Find\nPlease type A, D, L, F, or Q : \n ");
+			String request = userInput.readLine(); 
+			
+			while ( request != null) {
+		
+				switch (request) {
+				case "A":
+					System.out.println("Please enter the name to be added to the list:\n");
+					String name = userInput.readLine();
+					System.out.println("Please enter the street: \n");
+					String street = userInput.readLine();
+					System.out.println("Please enter the phone number \n");
+					String phoneNumber = userInput.readLine();	
+					
+					String[] things = {name, street, phoneNumber};
+					ArrayList<String> list0 = new ArrayList<String>();
+					List<String> list1 = Arrays.asList(things);
+					
+					//for (String x:things)
+					//	list1.add(x);
+					
+					Collections.addAll(list0,  things);
+					
+					for (String x : list0)
+						System.out.printf("%s ",  x);
+						
+					
+					//myArr.add(new Address(name, street, phoneNumber));
+	
+					//System.out.println("\nUpdated Address List:" + myArr);
+					System.out.println();
+					break;
+					
+				case "D":
+					System.out.println("Please enter the name to be deleted from the address book\n");
+					String nameD = userInput.readLine();
+					myArr.remove(nameD);
+					System.out.println("Updated Address List\n");
+					System.out.printf("%s ", myArr);
+					break;
+				case "L":
+					System.out.println("Current address list\n");
+					System.out.printf("%s \n\n", myArr);
+					break;
+				case "F":
+					System.out.println("Please enter the name you are looking for :\n");
+					String nameF = userInput.readLine();
+				case "Q":
+					System.out.println("End of list management. Good bye!");
+					flag = true;
+					break;
+				}					
+				break;				
+			}
+			
+		} 
+		
+	}
+	public static void change(String x[]){
+		for (int counter = 0; counter<x.length; counter++)
+			
+	}
+}
+	
+    
